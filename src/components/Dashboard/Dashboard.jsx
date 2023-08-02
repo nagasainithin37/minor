@@ -27,7 +27,7 @@ const [one,setOne]=useState(true)
 
 
 
-if(one){
+if(one && isSuccess==false){
 let actionObject=fetchUser({url:global.api+'user/getdetails',headers:{"Authorization":localStorage.getItem('token')}})
 dispatch(actionObject)
 
@@ -58,7 +58,7 @@ var getScore=(type)=>{
             return user.score.hr.algo_score+user.score.hr.ds_score
         }
         else if(type=='codeforce'){
-            var x=user.score.cf.noOfProblemsSolved*50
+            var x=user.score.cf.noOfProblemsSolved*10
             if(user.score.cf.noOfContests>=3 && user.score.cf.rating>=1300)
             {
                 x+=parseInt(Math.pow((user.score.cf.rating-1300),2)/30)
