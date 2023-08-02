@@ -1,10 +1,9 @@
 import LoginContainer from "./Login";
 import logo from "./undraw_online_stats_0g94.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../../consts'
 import axios  from "axios";
-import { fetchUser } from "../../store/userSlice";
-import { useSelector,useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CirclesWithBar } from  'react-loader-spinner'
@@ -12,7 +11,7 @@ import { CirclesWithBar } from  'react-loader-spinner'
 function Login()
 {
 
-const dispatch=useDispatch()
+  const navigate=useNavigate()
 
   const notify = (msg) => {
 
@@ -29,11 +28,12 @@ theme: "dark",
 
 
   }
-const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store.user)
+// const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store.user)
     const [username,setUserName]=useState('')
     const [password,setPassword]=useState('')
     const [visible,setVisible]=useState(false)
     const [isLoading,setIsLoading]=useState(false)
+  // on submit
     const handleSubmit=async ()=>{
       
       setIsLoading(true)
@@ -70,7 +70,14 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
 
 
 
+useEffect(()=>{
 
+  if(localStorage.getItem('token')!=null){
+    navigate('/user/dashboard')
+  }
+
+
+},[])
 
 
     return <div> 

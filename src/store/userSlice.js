@@ -3,7 +3,7 @@ import axios  from "axios";
 export const fetchUser=createAsyncThunk('users',async(dt,thunkApi)=>{
     try{
         console.log("data")
-        let response=await axios.post(dt.url,dt.body)
+        let response=await axios.post(dt.url,{},{headers:dt.headers})
         let data=response.data
         return data
 
