@@ -38,6 +38,9 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
         <li className="nav-item">
           <NavLink className="nav-link" to="user/dashboard">Dashboard</NavLink>
         </li>
+          <li className="nav-item">
+          <NavLink className="nav-link" to="user/lbdb">LeaderBoard</NavLink>
+        </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="user/profile">Profile</NavLink>
         </li>

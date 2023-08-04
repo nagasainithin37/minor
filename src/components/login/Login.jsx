@@ -63,6 +63,7 @@ theme: "dark",
       }
       localStorage.setItem('token',data.token)
       localStorage.setItem('username',data.username)
+      localStorage.setItem('type',data.type)
       navigate('/user/dashboard')
     }
 

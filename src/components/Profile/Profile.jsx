@@ -1,6 +1,6 @@
 import ProfileContainer from "./Profile";
 import { useSelector,useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../../consts'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,6 +22,8 @@ function Profile(){
     const [isLoading,setIsLoading]=useState(false)
     const [updates,setUpdated]=useState(false)
     const dispatch=useDispatch()
+    
+    
 
         const success = (msg) => {
 
@@ -103,7 +105,7 @@ function Profile(){
     
     <ProfileContainer>
 
-        {!isLoading&&<div className='user'>
+        {!isLoading&&isSuccess&&<div className='user'>
 
         <div className='d-flex justify-content-around gap-4'>
         {/* Name */}
