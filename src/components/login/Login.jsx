@@ -64,7 +64,11 @@ theme: "dark",
       localStorage.setItem('token',data.token)
       localStorage.setItem('username',data.username)
       localStorage.setItem('type',data.type)
+      if(data.type=='user')
       navigate('/user/dashboard')
+    else{
+      navigate('/admin/dashboard')
+    }
     }
 
 
@@ -74,7 +78,11 @@ theme: "dark",
 useEffect(()=>{
 
   if(localStorage.getItem('token')!=null){
-    navigate('/user/dashboard')
+    if(localStorage.getItem('type')=='user')
+      navigate('/user/dashboard')
+    if(localStorage.getItem('type')=='admin'){
+      navigate('/admin/dashboard')
+    }
   }
 
 

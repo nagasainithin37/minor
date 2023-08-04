@@ -5,24 +5,16 @@ import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import Leaderboard from "./components/Leaderboard/Leaderboard.jsx";
 import LeaderBoardDashBoard from "./components/LeaderBoardDashBoard/LeaderBoardDashBoard.jsx";
-import { useSelector,useDispatch } from "react-redux";
-import {fetchUser} from './store/userSlice';
+import DashboardAdmin from "./components/Admin/Dashboard/Dashboard.jsx";
+import Batch from "./components/Admin/batch/batch.jsx";
+
+
+
 import { useState } from "react";
 import './consts.js'
+import BatchContainer from "./components/Admin/batch/batch.js";
 function App() {
 
-//   const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store.user)
-// const dispatch=useDispatch()
-// const [one,setOne]=useState(true)
-
-
-
-// if(one && isSuccess==false&&localStorage.getItem('token')!=null){
-// let actionObject=fetchUser({url:global.api+'user/getdetails',headers:{"Authorization":localStorage.getItem('token')}})
-// dispatch(actionObject)
-
-//     setOne(false)
-// }
 
 
 
@@ -59,7 +51,11 @@ function App() {
   <Route path='/user/lbdb' element={<LeaderBoardDashBoard/>} />
   <Route path='/user/leaderboard' element={<Leaderboard/>} />
 </Route>
+<Route  path='/admin' >
+  <Route path='/admin/dashboard' element={<DashboardAdmin/>} />
+   <Route path='/admin/batch' element={<BatchContainer/>} />
 
+</Route>
 </Routes>
 
 
