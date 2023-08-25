@@ -32,6 +32,20 @@ export const adminSlice=createSlice(
             },
             update:(state,action)=>{
                 state.user=JSON.parse(action.payload)
+            },
+            addBatch:(state,action)=>{
+                state.details.push(action.payload)
+            },
+            delBatch:(state,action)=>{
+                let idx=0
+                while(state.details[idx].name!==action.payload){
+                console.log(idx)
+                    console.log(state.details[idx])
+                    idx+=1
+                }
+                
+
+                state.details.splice(idx,1)
             }
 
 
@@ -69,6 +83,6 @@ export const adminSlice=createSlice(
     }
 )
 
-export const {adminlogout,update}=adminSlice.actions;
+export const {adminlogout,update,addBatch,delBatch}=adminSlice.actions;
 
 export default adminSlice.reducer

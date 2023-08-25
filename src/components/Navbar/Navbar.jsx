@@ -40,6 +40,7 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
                 <NavLink className="nav-link" to="admin/dashboard">Dashboard</NavLink>
               </li>
              
+             
               <li className="nav-item" >
                 <NavLink className="nav-link" to='login' onClick={()=>{
                   localStorage.clear()
@@ -75,6 +76,9 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
           <li className="nav-item">
           <NavLink className="nav-link" to="user/lbdb">LeaderBoard</NavLink>
         </li>
+        <li className="nav-item">
+                <NavLink className="nav-link" to="user/contests">Upcoming Contests</NavLink>
+              </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="user/profile">Profile</NavLink>
         </li>

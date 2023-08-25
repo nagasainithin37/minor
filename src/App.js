@@ -6,8 +6,8 @@ import Profile from "./components/Profile/Profile.jsx";
 import Leaderboard from "./components/Leaderboard/Leaderboard.jsx";
 import LeaderBoardDashBoard from "./components/LeaderBoardDashBoard/LeaderBoardDashBoard.jsx";
 import DashboardAdmin from "./components/Admin/Dashboard/Dashboard.jsx";
-import Batch from "./components/Admin/batch/batch.jsx";
-
+import Batch from './components/Admin/batch/batch.jsx'
+import Contests from "./components/Upcoming Contests/Contests.jsx";
 
 
 import { useState } from "react";
@@ -50,10 +50,11 @@ function App() {
   <Route path='/user/profile' element={<Profile/>} />
   <Route path='/user/lbdb' element={<LeaderBoardDashBoard/>} />
   <Route path='/user/leaderboard' element={<Leaderboard/>} />
+  <Route path='/user/contests' element={<Contests/>}/>
 </Route>
 <Route  path='/admin' >
   <Route path='/admin/dashboard' element={<DashboardAdmin/>} />
-   <Route path='/admin/batch' element={<BatchContainer/>} />
+   <Route path='/admin/batch' element={<Batch/>} />
 
 </Route>
 </Routes>
