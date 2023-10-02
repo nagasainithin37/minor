@@ -167,7 +167,7 @@ function DashboardAdmin(){
 
         details.map((ele,idx)=>{
             return <div className="lb-container ">
-                <div className="d-flex justify-content-around">
+                <div className="d-flex justify-content-around ">
                 <h4  className='mx-3'>{ele.name}</h4>
             <div className='ps-3 pe-3' style={{boxShadow:'black 0px 1px 3px 1px',borderRadius:'5px',cursor:'pointer'}} onClick={()=>{
                 setIdx(idx)
@@ -279,7 +279,7 @@ function DashboardAdmin(){
     >
   <Box sx={style} className='d-flex flex-column gap-3'>
       <div class="form-floating mb-3">
-            <input type="text" value={name} class="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
+            <input type="text" value={name} class="form-control" disabled onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
             <label for="floatingInput">Batch Name</label>
         </div>
 

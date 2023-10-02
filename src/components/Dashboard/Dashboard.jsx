@@ -96,9 +96,9 @@ var getScore=(type)=>{
 // console.log(dta)
     return <DashboardContainer>
       
-        <div className="d-flex justify-content-around flex-column ">
+        <div className="d-flex justify-content-around flex-column flex-wrap-reverse">
             
-            <div className='d-flex justify-content-around w-100 mt-5 gap-5 '>
+            <div className='d-flex justify-content-around w-100 mt-5 gap-5  fw '>
        
        {user.profile&&user.profile.lc&&
          <Card 
@@ -121,7 +121,7 @@ var getScore=(type)=>{
         />}
             </div>
 
-            <div className='d-flex justify-content-around w-100 mt-5 gap-5 '>
+            <div className='d-flex justify-content-around w-100 mt-5 gap-5 fw '>
                     {/* hackerrank */}
                     {user.profile&&user.profile.hr&&
                     <Card 
