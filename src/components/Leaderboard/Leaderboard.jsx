@@ -3,9 +3,20 @@ import { useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import '../../consts'
-
+import { BsSortDown,BsSortUp } from "react-icons/bs";
 
 function Leaderboard(){
+
+    const [lcs,setLcs]=useState(true)
+    const [hrs,setHrs]=useState(true)
+    const [ccs,setCcs]=useState(true)
+    const [cfs,setCfs]=useState(true)
+    const [spojs,setSpojs]=useState(true)
+    const [rolls,setRolls]=useState(true)
+    const [tts,setTts]=useState(true)
+
+
+
 
     const location=useLocation()
     var batch=location.state.batch
@@ -27,6 +38,139 @@ function Leaderboard(){
 
     },[])
 
+    var sortt=(type)=>{
+        // console.log(type)
+        if(data==null){
+            return
+        }
+       var  x=data.resObj
+        if(type===1){
+            if(rolls){
+                // //console.log("des")
+                x.sort((a, b) => {
+                    return (a.username - b.username);
+                });
+                setRolls(false)
+            }
+            else{
+                //// console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.username - b.username);
+                });
+                setRolls(true)
+            }
+            // //console.log(x)
+            setData({...data,...x})
+        }
+        else if(type===2){
+            if(tts){
+                // //console.log("des")
+                x.sort((a, b) => {
+                    return (a.totalScore - b.totalScore);
+                });
+                setTts(false)
+            }
+            else{
+                //// console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.totalScore - b.totalScore);
+                });
+                setTts(true)
+            }
+            // //console.log(x)
+            setData({...data,...x})
+        }
+        else if(type===3){
+            if(lcs){
+                // //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.lc.total - b.score.lc.total);
+                });
+                setLcs(false)
+            }
+            else{
+                //// console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.lc.total - b.score.lc.total);
+                });
+                setLcs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
+        else if(type===4){
+            if(hrs){
+                //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.hr.total - b.score.hr.total);
+                });
+                setHrs(false)
+            }
+            else{
+               // console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.hr.total - b.score.hr.total);
+                });
+                setHrs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
+        else if(type===5){
+            if(ccs){
+                //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.cc.total - b.score.cc.total);
+                });
+                setCcs(false)
+            }
+            else{
+               // console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.cc.total - b.score.cc.total);
+                });
+                setCcs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
+         else if(type===6){
+            if(cfs){
+                //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.cf.total - b.score.cf.total);
+                });
+                setCfs(false)
+            }
+            else{
+               // console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.cf.total - b.score.cf.total);
+                });
+                setCfs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
+         else if(type===7){
+            if(spojs){
+                //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.spoj.total - b.score.spoj.total);
+                });
+                setSpojs(false)
+            }
+            else{
+               // console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.spoj.total - b.score.spoj.total);
+                });
+                setSpojs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
+    }
 
     return <LeaderboardContainer>
 
@@ -35,7 +179,7 @@ function Leaderboard(){
             <thead>
             <tr>
                 <th rowSpan={2}>Rank</th>
-                <th rowSpan={2}>Roll Number</th>
+                <th rowSpan={2}>Roll Number {rolls?<BsSortDown class='R-icon' onClick={()=>sortt(1)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(1)}/>}</th>
                 <th rowSpan={2}>Name</th>
                 {data&&data.profiles&&data.profiles.leetcode&&
                 
@@ -43,11 +187,11 @@ function Leaderboard(){
                 }
                 {data&&data.profiles&&data.profiles.hackerrank&&
                 
-                <th colSpan={3}>Hackerrank</th>
+                <th colSpan={3}>Hackerrank </th>
                 }
                 {data&&data.profiles&&data.profiles.codechef&&
                 
-                <th colSpan={3}>Codechef</th>
+                <th colSpan={3}>Codechef </th>
                 }
                  {data&&data.profiles&&data.profiles.codeforce&&
                 
@@ -55,9 +199,9 @@ function Leaderboard(){
                 }
                  {data&&data.profiles&&data.profiles.spoj&&
                 
-                <th>Spoj</th>
+                <th>Spoj </th>
                 }
-                <th rowSpan={2}>Total Score</th>
+                <th rowSpan={2}>Total Score {tts?<BsSortDown class='R-icon' onClick={()=>sortt(2)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(2)}/>}</th>
             </tr>
             <tr>
                 
@@ -69,7 +213,7 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.leetcode&&
-                <th >Total</th>
+                <th >Total  {lcs?<BsSortDown class='R-icon' onClick={()=>sortt(3)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(3)}/>}</th>
                 }
                 {/* hackerrank */}
                    {data&&data.profiles&&data.profiles.hackerrank&&
@@ -79,7 +223,7 @@ function Leaderboard(){
                 <th >Data Structure</th>
                 }
                 {data&&data.profiles&&data.profiles.hackerrank&&
-                <th >Total</th>
+                <th >Total {hrs?<BsSortDown class='R-icon ' onClick={()=>sortt(4)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(4)}/>}</th>
                 }
                  {/*code chef  */}
                 {data&&data.profiles&&data.profiles.codechef&&
@@ -89,7 +233,7 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.codechef&&
-                <th >Total</th>
+                <th >Total {ccs?<BsSortDown class='R-icon' onClick={()=>sortt(5)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(5)}/>}</th>
                 }
                  {/*code force  */}
                 {data&&data.profiles&&data.profiles.codeforce&&
@@ -99,10 +243,10 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.codeforce&&
-                <th >Total</th>
+                <th >Total  {cfs?<BsSortDown class='R-icon' onClick={()=>sortt(6)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(6)}/>}</th>
                 }
                 {data&&data.profiles&&data.profiles.spoj&&
-                <th >Total</th>
+                <th >Total {spojs?<BsSortDown class='R-icon' onClick={()=>sortt(7)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(7)}/>}</th>
                 }
                 
 
@@ -117,7 +261,7 @@ function Leaderboard(){
 
                         return <tr key={idx}>
 
-                        <td className='body'>{idx+1}</td>
+                        <td className='body'>{ele.rank}</td>
                         <td className='body'>{ele.username}</td>
                         <td className='body'>{ele.name}</td>
                        {/* leet code */}

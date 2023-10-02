@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios  from "axios";
 export const fetchAllUsers=createAsyncThunk('details',async(dt,thunkApi)=>{
     try{
-        console.log("data")
-        console.log(dt.url)
+        // console.log("data")
+        // console.log(dt.url)
         let response=await axios.post(dt.url,{},{headers:dt.headers})
         let data=response.data
-        console.log(data)
+        // console.log(data)
         return data.data
 
     }
@@ -39,13 +39,16 @@ export const adminSlice=createSlice(
             delBatch:(state,action)=>{
                 let idx=0
                 while(state.details[idx].name!==action.payload){
-                console.log(idx)
-                    console.log(state.details[idx])
+                // console.log(idx)
+                //     console.log(state.details[idx])
                     idx+=1
                 }
                 
 
                 state.details.splice(idx,1)
+            },
+            updateBatch:(state,action)=>{
+                state.details[action.payload.idx]={...state.details[action.payload.idx],...action.payload.data}
             }
 
 
@@ -83,6 +86,6 @@ export const adminSlice=createSlice(
     }
 )
 
-export const {adminlogout,update,addBatch,delBatch}=adminSlice.actions;
+export const {adminlogout,update,addBatch,delBatch,updateBatch}=adminSlice.actions;
 
 export default adminSlice.reducer

@@ -17,6 +17,10 @@ thead{
     position:sticky;
     top:0px;
 }
+.R-icon{
+    cursor:pointer;
+}
+
 `;
 
 

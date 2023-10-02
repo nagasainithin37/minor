@@ -12,11 +12,15 @@ import Contests from "./components/Upcoming Contests/Contests.jsx";
 
 import { useState } from "react";
 import './consts.js'
+import axios from "axios";
 import BatchContainer from "./components/Admin/batch/batch.js";
 function App() {
 
 
-
+setInterval(async()=>{
+  var result =await axios.get(global.api+'dummy')
+  console.log(result.data)
+},600000)
 
 
 

@@ -128,7 +128,7 @@ var addUsers=async()=>{
 
 
 
-console.log(newUserData)
+// console.log(newUserData)
 useEffect(()=>{
 
 fetchData()
@@ -177,7 +177,7 @@ return <BatchContainer>
                 var tempObj={}
                 for(var j=0;j<headers.length;j++){
                     tempObj[headers[j]]=res.rows[i][j]
-                    console.log(headers[j]+' 5 '+res.rows[i][j])
+                    // console.log(headers[j]+' 5 '+res.rows[i][j])
                 }
                 result.push(tempObj)
             }
@@ -208,9 +208,14 @@ return <BatchContainer>
             // const headers=res.rows[0]
             res.rows.shift()
             var result=[]
-            for(var i=0;i<res.rows.length;i++){
+            var n=res.rows.length
+            // for(var i=0;i<res.rows.length;i++){
+            //     result.push(res.rows[i][0])
+            //     console.log(res.rows[i])
+            // }
+             for(var i=n-1;i>-1;i--){
                 result.push(res.rows[i][0])
-                console.log(res.rows[i])
+                // console.log(res.rows[i])
             }
             setAddUserData([...result])
             console.log(result)

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios  from "axios";
 export const fetchUser=createAsyncThunk('users',async(dt,thunkApi)=>{
     try{
-        console.log("data")
+        // console.log("data")
         let response=await axios.post(dt.url,{},{headers:dt.headers})
         let data=response.data
         return data

@@ -79,7 +79,7 @@ function Profile(){
             "hr":hr,
         }
         globalbody.profile={...globalbody.profile,...body.profiles}
-        console.log(globalbody)
+        // console.log(globalbody)
         var url=global.api+"update/user"
         var result=await axios.put(url,body)
         var res=result.data

@@ -17,7 +17,7 @@ var fetchData=async()=>{
     const result=await axios.get('https://kontests.net/api/v1/all')
     setData(result.data)
 }
-console.log(data)
+// console.log(data)
 if(isFetched==false){
 
     setIsFetched(true)

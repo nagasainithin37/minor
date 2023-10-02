@@ -8,9 +8,9 @@ flex-wrap: wrap;
 
 .lb-container{
 
-    padding:20px;
+    padding:20px ;
     box-shadow: 1px 1px 2px 0.5px black;
-    width:200px;
+    width:250px;
     border-radius: 10px;
     display:flex;
     flex-direction: column;
