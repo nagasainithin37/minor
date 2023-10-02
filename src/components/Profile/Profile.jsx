@@ -107,7 +107,7 @@ function Profile(){
 
         {!isLoading&&isSuccess&&<div className='user'>
 
-        <div className='d-flex justify-content-around gap-4'>
+        <div className='d-flex justify-content-around gap-4 fc one'>
         {/* Name */}
         <div class="form-floating mb-3">
             <input type="text" value={name} class="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
@@ -127,7 +127,7 @@ function Profile(){
 
         {/* platforms */}
 
-        <div className='d-flex justify-content-around gap-4'>
+        <div className='d-flex justify-content-around gap-4 fc'>
       
         <div class="form-floating mb-3">
             <input type="text" value={lc} class="form-control" onChange={(e)=>{setLc(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
@@ -147,7 +147,7 @@ function Profile(){
 
         {/* platforms 2 */}
 
-        <div className='d-flex justify-content-around gap-4'>
+        <div className='d-flex justify-content-around gap-4 fc'>
         
         <div class="form-floating mb-3">
             <input type="text" value='sample id'   class="form-control" id="floatingInput" placeholder="name@example.com"/>

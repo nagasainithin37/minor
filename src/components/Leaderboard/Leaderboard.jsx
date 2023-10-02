@@ -173,14 +173,14 @@ function Leaderboard(){
     }
 
     return <LeaderboardContainer>
-
+<div className='table-res'>
         <table className="table text-center table-striped table-bordered position-sticky top-0">
 
             <thead>
             <tr>
                 <th rowSpan={2}>Rank</th>
                 <th rowSpan={2}>Roll Number {rolls?<BsSortDown class='R-icon' onClick={()=>sortt(1)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(1)}/>}</th>
-                <th rowSpan={2}>Name</th>
+                <th rowSpan={2} className="hs">Name</th>
                 {data&&data.profiles&&data.profiles.leetcode&&
                 
                 <th colSpan={3}>Leetcode</th>
@@ -263,7 +263,7 @@ function Leaderboard(){
 
                         <td className='body'>{ele.rank}</td>
                         <td className='body'>{ele.username}</td>
-                        <td className='body'>{ele.name}</td>
+                        <td className='body' className="hs">{ele.name}</td>
                        {/* leet code */}
                         {data&&data.profiles&&data.profiles.leetcode&&
                             <td className='body'>{ele.score.lc.noOfProblemsSolved}</td>
@@ -335,7 +335,7 @@ function Leaderboard(){
 
 
         </table>
-
+</div>
 
     </LeaderboardContainer>
 }
