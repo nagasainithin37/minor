@@ -19,7 +19,13 @@ li{
    
 }
 
+@media only screen and (max-width: 720px) {
+    .table-res{
+    width:100vw;
+    overflow-x: scroll;
 
+}
+}
 
 
 `;

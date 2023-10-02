@@ -23,6 +23,7 @@ label{
 }
 
 
+
 @media only screen and (max-width: 1050px) {
   img,.img{
         display:none;

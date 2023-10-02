@@ -204,30 +204,14 @@ return <BatchContainer>
             alert(err)
           }
           else{
-
-            // const headers=res.rows[0]
             res.rows.shift()
             var result=[]
             var n=res.rows.length
-            // for(var i=0;i<res.rows.length;i++){
-            //     result.push(res.rows[i][0])
-            //     console.log(res.rows[i])
-            // }
              for(var i=n-1;i>-1;i--){
                 result.push(res.rows[i][0])
-                // console.log(res.rows[i])
             }
             setAddUserData([...result])
             console.log(result)
-            // for(var i=0;i<res.rows.length;i++){
-            //     var tempObj={}
-            //     for(var j=0;j<headers.length;j++){
-            //         tempObj[headers[j]]=res.rows[i][j]
-            //         console.log(headers[j]+' 5 '+res.rows[i][j])
-            //     }
-            //     result.push(tempObj)
-            // }
-            // setNewUserData([...result])
           }
         })
       }} 
@@ -244,6 +228,7 @@ return <BatchContainer>
 </div>
 </div>
 
+<div className='table-res'>
    <table id="table-to-xls" className="table table-striped  text-center mx-auto mt-2">
 
     <thead>
@@ -290,7 +275,7 @@ return <BatchContainer>
     </tbody>
 
    </table>
-    
+    </div>
 
 </div>
 }
