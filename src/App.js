@@ -17,10 +17,10 @@ import BatchContainer from "./components/Admin/batch/batch.js";
 function App() {
 
 
-setInterval(async()=>{
-  var result =await axios.get(global.api+'dummy')
-  console.log(result.data)
-},600000)
+// setInterval(async()=>{
+//   var result =await axios.get(global.api+'dummy')
+//   console.log(result.data)
+// },600000)
 
 
 

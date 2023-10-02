@@ -5,6 +5,7 @@ display:flex;
 justify-content: space-around;
 align-items: center;
 /* height:100vh; */
+height:100vh!important;
 color:#cfc8c2;
 .login{
     padding:50px 30px;
@@ -20,6 +21,24 @@ label{
     font-style: italic;
     margin-bottom: 5px;
 }
+
+
+@media only screen and (max-width: 1050px) {
+  img,.img{
+        display:none;
+    }
+
+    body{
+        display:flex;
+        align-items: center;
+        
+        justify-content: center;
+    }
+    .login{
+    
+    }
+}
+
 
 
 `;
