@@ -154,7 +154,7 @@ return <BatchContainer>
 }
 { isLoading==false&&
 <div>
-<div className="d-flex justify-content-around align-items-center mt-3">
+<div className="d-flex justify-content-around align-items-center mt-3 flex-wrap gap-4">
 
 
 
