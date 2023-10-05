@@ -1,1 +1,1 @@
-global.api='https://score-tracker-be.onrender.com/dummy/';
+global.api='https://score-tracker-be.onrender.com/';
