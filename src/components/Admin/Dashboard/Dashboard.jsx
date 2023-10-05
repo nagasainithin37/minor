@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { addBatch,delBatch,updateBatch } from "../../../store/adminSlice";
 import { AiOutlineDelete } from "react-icons/ai";
+import { CirclesWithBar } from  'react-loader-spinner'
 import '../../../consts'
 // Modal styles
 const style = {
@@ -27,7 +28,8 @@ const style = {
 
 
  const success = (msg) => {
-
+    // console.log('success')
+    // alert('suces')
       toast.success(msg, {
         position: "top-right",
         autoClose: 3000,
@@ -40,6 +42,7 @@ const style = {
         });
  }
         const failure = (msg) => {
+            // console.log('failure')
             toast.error(msg, {
             position: "top-right",
             autoClose: 3000,
@@ -67,6 +70,7 @@ function DashboardAdmin(){
             const [cc,setCc]=useState(false)
             const [cf,setCf]=useState(false)
             const [hr,setHr]=useState(false)
+            const [isLoading,setIsLoading]=useState(false)
             const [spoj,setSpoj]=useState(false)
             const [ib,setIb]=useState(false)
             const navigate=useNavigate()
@@ -86,16 +90,20 @@ function DashboardAdmin(){
             const [ibn,setIbn]=useState(false)
             const [idx,setIdx]=useState(0)
             var deleteBatch=async(batchName)=>{
+                setIsLoading(true)
                 var deleteResult=await axios.get(global.api+'update/deleteBatch?name='+batchName)
                 if(deleteResult.data.message=='success'){
+                    setIsLoading(false)
                     success(`${batchName} deleted Successfully`)
                     var actionObj=delBatch(batchName)
                     dispatch(actionObj)
                 }
+                
                 return;
             }
 
             var updateBatchh=async()=>{
+                setIsLoading(true)
                 var obj={}
                 // console.log(oldName)
                 obj.name=name
@@ -113,12 +121,15 @@ function DashboardAdmin(){
                 if(resu.message==='success'){
                         var actionObj=updateBatch({idx,data:obj});
                         dispatch(actionObj)
+                         setIsLoading(false)
                         success("Batch updated succesfully")
                 }
                 else{
+                     setIsLoading(false)
                     failure(resu.message)
                 }
                 handleCloseEdit()
+               
                 // obj.profiles.interviewbit=lcn
             }
 
@@ -132,6 +143,7 @@ function DashboardAdmin(){
             }
 
             var createBatch=async()=>{
+                setIsLoading(true)
                 var obj={}
                 if(name.trim().length==0){
                     failure('Enter Batch Name')
@@ -148,17 +160,20 @@ function DashboardAdmin(){
                 obj.users=[]
                 var result=(await axios.post(global.api+'create/batch',obj)).data
                 if(result.type=='success'){
+                    setIsLoading(false)
                     success(result.message)
                     var actionObj=addBatch(obj)
                     dispatch(actionObj)
                     handleClose()
                 }
                 else{
+                    setIsLoading(false)
                     failure(result.message)
                 }
                 
             }
-    return <DashboardContainer>
+    return<div>
+   {isLoading==false&& <DashboardContainer>
 
         <div className="d-flex w-100">
             <button className="btn btn-primary" onClick={handleOpen}>Create New Batch</button>
@@ -330,8 +345,26 @@ function DashboardAdmin(){
   </Box>
 </Modal>
 
-<ToastContainer />
+
     </DashboardContainer>
+    }
+      { isLoading &&
+      <CirclesWithBar
+  height="100"
+  width="100"
+  color="#4fa94d"
+  wrapperStyle={{height:'90vh'}}
+  wrapperClass="d-flex justify-content-center align-items-center "
+  visible={true}
+  outerCircleColor=""
+  innerCircleColor=""
+  barColor=""
+  ariaLabel='circles-with-bar-loading'
+/>
+
+      } 
+      <ToastContainer /> 
+    </div>
 }
 
 export default DashboardAdmin;

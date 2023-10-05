@@ -4,7 +4,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import '../../consts'
 import { BsSortDown,BsSortUp } from "react-icons/bs";
-
+import { CirclesWithBar } from  'react-loader-spinner'
 function Leaderboard(){
 
     const [lcs,setLcs]=useState(true)
@@ -15,7 +15,7 @@ function Leaderboard(){
     const [spojs,setSpojs]=useState(true)
     const [rolls,setRolls]=useState(true)
     const [tts,setTts]=useState(true)
-
+ const [isLoading,setIsLoading]=useState(false)
 
 
 
@@ -29,8 +29,10 @@ function Leaderboard(){
     useEffect(()=>{
 
     async function fetchMyAPI() {
+        setIsLoading(true)
         var data=await axios.get(`${global.api}get/batchScore?name=${batch}`)
         setData(data.data)
+        setIsLoading(false)
         }
 
         fetchMyAPI()
@@ -192,7 +194,7 @@ function Leaderboard(){
     }
 
     return <LeaderboardContainer>
-<div className='table-res'>
+{isLoading==false&&<div className='table-res'>
         <table className="table text-center table-striped table-bordered position-sticky top-0">
 
             <thead>
@@ -365,7 +367,22 @@ function Leaderboard(){
 
         </table>
 </div>
+}
+     { isLoading &&
+      <CirclesWithBar
+  height="100"
+  width="100"
+  color="#4fa94d"
+  wrapperStyle={{height:'90vh'}}
+  wrapperClass="d-flex justify-content-center align-items-center "
+  visible={true}
+  outerCircleColor=""
+  innerCircleColor=""
+  barColor=""
+  ariaLabel='circles-with-bar-loading'
+/>
 
+      } 
     </LeaderboardContainer>
 }
 
