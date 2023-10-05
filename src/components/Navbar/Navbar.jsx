@@ -14,7 +14,7 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
        return <NavbarContainer>
             <nav className="navbar navbar-expand-lg bg-body-warning ">
                 <div className="container-fluid">
-                  <a className="navbar-brand" to="#">Navbar</a>
+                  <a className="navbar-brand" to="#">VNRVJIET</a>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
@@ -28,7 +28,7 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
        return <NavbarContainer>
           <nav className="navbar navbar-expand-lg bg-body-warning ">
         <div className="container-fluid">
-          <a className="navbar-brand" to="#">Navbar</a>
+          <a className="navbar-brand" to="#">VNR VJIET</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -62,7 +62,7 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
     return <NavbarContainer>
     <nav className="navbar navbar-expand-lg bg-body-warning ">
   <div className="container-fluid">
-    <a className="navbar-brand" to="#">Navbar</a>
+    <a className="navbar-brand" to="#">VNRVJIET</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

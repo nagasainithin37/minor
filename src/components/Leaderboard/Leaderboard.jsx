@@ -9,6 +9,7 @@ function Leaderboard(){
 
     const [lcs,setLcs]=useState(true)
     const [hrs,setHrs]=useState(true)
+    const [ibs,setIbs]=useState(true)
     const [ccs,setCcs]=useState(true)
     const [cfs,setCfs]=useState(true)
     const [spojs,setSpojs]=useState(true)
@@ -170,6 +171,24 @@ function Leaderboard(){
             //console.log(x)
             setData({...data,...x})
         }
+        else if(type===8){
+             if(ibs){
+                //console.log("des")
+                x.sort((a, b) => {
+                    return (a.score.ib.total - b.score.ib.total);
+                });
+                setIbs(false)
+            }
+            else{
+               // console.log('asc')
+                x.sort((a, b) => {
+                    return -(a.score.ib.total - b.score.ib.total);
+                });
+                setIbs(true)
+            }
+            //console.log(x)
+            setData({...data,...x})
+        }
     }
 
     return <LeaderboardContainer>
@@ -179,7 +198,7 @@ function Leaderboard(){
             <thead>
             <tr>
                 <th rowSpan={2}>Rank</th>
-                <th rowSpan={2}>Roll Number {rolls?<BsSortDown class='R-icon' onClick={()=>sortt(1)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(1)}/>}</th>
+                <th rowSpan={2}>Roll Number {rolls?<BsSortDown className='R-icon' onClick={()=>sortt(1)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(1)}/>}</th>
                 <th rowSpan={2} className="hs">Name</th>
                 {data&&data.profiles&&data.profiles.leetcode&&
                 
@@ -201,7 +220,11 @@ function Leaderboard(){
                 
                 <th>Spoj </th>
                 }
-                <th rowSpan={2}>Total Score {tts?<BsSortDown class='R-icon' onClick={()=>sortt(2)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(2)}/>}</th>
+                 {data&&data.profiles&&data.profiles.ib&&
+                
+                <th>Interviw Bit </th>
+                }
+                <th rowSpan={2}>Total Score {tts?<BsSortDown className='R-icon' onClick={()=>sortt(2)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(2)}/>}</th>
             </tr>
             <tr>
                 
@@ -213,7 +236,7 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.leetcode&&
-                <th >Total  {lcs?<BsSortDown class='R-icon' onClick={()=>sortt(3)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(3)}/>}</th>
+                <th >Total  {lcs?<BsSortDown className='R-icon' onClick={()=>sortt(3)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(3)}/>}</th>
                 }
                 {/* hackerrank */}
                    {data&&data.profiles&&data.profiles.hackerrank&&
@@ -223,7 +246,7 @@ function Leaderboard(){
                 <th >Data Structure</th>
                 }
                 {data&&data.profiles&&data.profiles.hackerrank&&
-                <th >Total {hrs?<BsSortDown class='R-icon ' onClick={()=>sortt(4)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(4)}/>}</th>
+                <th >Total {hrs?<BsSortDown className='R-icon ' onClick={()=>sortt(4)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(4)}/>}</th>
                 }
                  {/*code chef  */}
                 {data&&data.profiles&&data.profiles.codechef&&
@@ -233,7 +256,7 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.codechef&&
-                <th >Total {ccs?<BsSortDown class='R-icon' onClick={()=>sortt(5)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(5)}/>}</th>
+                <th >Total {ccs?<BsSortDown className='R-icon' onClick={()=>sortt(5)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(5)}/>}</th>
                 }
                  {/*code force  */}
                 {data&&data.profiles&&data.profiles.codeforce&&
@@ -243,12 +266,14 @@ function Leaderboard(){
                 <th >Rating</th>
                 }
                 {data&&data.profiles&&data.profiles.codeforce&&
-                <th >Total  {cfs?<BsSortDown class='R-icon' onClick={()=>sortt(6)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(6)}/>}</th>
+                <th >Total  {cfs?<BsSortDown className='R-icon' onClick={()=>sortt(6)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(6)}/>}</th>
                 }
                 {data&&data.profiles&&data.profiles.spoj&&
-                <th >Total {spojs?<BsSortDown class='R-icon' onClick={()=>sortt(7)}/>:<BsSortUp class='R-icon' onClick={()=>sortt(7)}/>}</th>
+                <th >Total {spojs?<BsSortDown className='R-icon' onClick={()=>sortt(7)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(7)}/>}</th>
                 }
-                
+                 {data&&data.profiles&&data.profiles.ib&&
+                <th >Total {ibs?<BsSortDown className='R-icon' onClick={()=>sortt(8)}/>:<BsSortUp className='R-icon' onClick={()=>sortt(8)}/>}</th>
+                }
 
             </tr>
 
@@ -263,7 +288,7 @@ function Leaderboard(){
 
                         <td className='body'>{ele.rank}</td>
                         <td className='body'>{ele.username}</td>
-                        <td className='body' className="hs">{ele.name}</td>
+                        <td className='body hs' >{ele.name}</td>
                        {/* leet code */}
                         {data&&data.profiles&&data.profiles.leetcode&&
                             <td className='body'>{ele.score.lc.noOfProblemsSolved}</td>
@@ -311,6 +336,10 @@ function Leaderboard(){
                         {data&&data.profiles&&data.profiles.spoj&&
                             <td className='body'>{ele.score.spoj.total}</td>
                         }
+                         {data&&data.profiles&&data.profiles.ib&&
+                            <td className='body'>{ele.score.ib.total}</td>
+                        }
+                    
                         <td className='body'>{ele.totalScore}</td>
 
 

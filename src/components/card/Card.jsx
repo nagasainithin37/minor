@@ -29,10 +29,73 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
              x+=parseInt(Math.pow((rating-1200),2)/30)
             setScore(x)
         }
+        else if(type==='ib' ){
+            setScore(parseInt(noOfProblems/3))
+        }
+        else if(type=='spoj'){
+            var x=noOfProblems*20
+            if(isNaN(x)){
+                x=0
+            }
+            setScore(x)
+        }
 
     },[])
 
+    if(type==='ib'){
+        return <CardContainer >
+            <div className="text-center display-6 text-primary">Interview Bit</div>
+        <div className="d-flex" >
+            
+        <div className="d-flex flex-column h-100 justify-content-around">
+
+        <div className="d-flex gap-4">
+             <div className="side" style={{fontSize:'22px'}}>Interview Bit Score</div>
+            <div className='main' style={{fontSize:'22px'}}>{noOfProblems}</div> 
+        </div>
+{/* Total */}
+         <div className='d-flex gap-4'>
+            <div className="side" style={{fontSize:'22px'}}>Total Score</div>
+            <div className='main' style={{fontSize:'22px'}}>{score}</div>  
+        </div>
+        </div>
+        <div className="ms-auto">
+            <img src={img} width={50} height={'auto'} alt="img" />
+        </div>
+        </div>
+        </CardContainer>
+    }
+
+    else if(type=='spoj'){
+           return <CardContainer>
+             <div className="text-center display-6 text-primary">Spoj</div>
+        <div className="d-flex">
+        <div className="d-flex flex-column h-100 justify-content-around">
+
+        <div className="d-flex gap-4">
+             <div className="side" style={{fontSize:'22px'}}>No of Problems</div>
+            <div className='main' style={{fontSize:'22px'}}>{noOfProblems}</div> 
+        </div>
+{/* Total */}
+         <div className='d-flex gap-4'>
+            <div className="side" style={{fontSize:'22px'}}>Total Score</div>
+            <div className='main' style={{fontSize:'22px'}}>{score}</div>  
+        </div>
+        </div>
+        <div className="ms-auto">
+            <img src={img} width={50} height={'auto'} alt="img" />
+        </div>
+        </div>
+        </CardContainer>
+    }
+
+    else{
     return <CardContainer>
+        {type=='leetcode'&& <div className="text-center display-6 text-primary ">LeetCode</div>}
+         {type=='codechef'&& <div className="text-center display-6 text-primary">CodeChef</div>}
+          {type=='codeforce'&& <div className="text-center display-6 text-primary">Codeforce</div>}
+           {type=='hackerrank'&& <div className="text-center display-6 text-primary">Hackerrank</div>}
+           
     <div className="d-flex ">
         <div className="d-flex flex-column h-100 justify-content-around">
        {type!=='hackerrank'&& <div className='d-flex gap-4'>
@@ -68,6 +131,7 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
     </div>
     
     </CardContainer>
+    }
 }
 
 

@@ -17,6 +17,7 @@ function Profile(){
     const [lc,setLc]=useState(user.profile?user.profile.lc:'')
     const [cc,setCc]=useState(user.profile?user.profile.cc:'')
     const [cf,setCf]=useState(user.profile?user.profile.cf:'')
+    const [ib,setIb]=useState(user.profile?user.profile.ib:'')
     const [spoj,setSpoj]=useState(user.profile?user.profile.spoj:'')
     const [hr,setHr]=useState(user.profile?user.profile.hr:'')
     const [isLoading,setIsLoading]=useState(false)
@@ -77,6 +78,7 @@ function Profile(){
            "cf":cf,
             "spoj":spoj,
             "hr":hr,
+            "ib":ib,
         }
         globalbody.profile={...globalbody.profile,...body.profiles}
         // console.log(globalbody)
@@ -109,18 +111,18 @@ function Profile(){
 
         <div className='d-flex justify-content-around gap-4 fc one'>
         {/* Name */}
-        <div class="form-floating mb-3">
-            <input type="text" value={name} class="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="text" value={name} className="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Name</label>
         </div>
         {/* Email */}
-        <div class="form-floating mb-3">
-            <input type="email" value={email} class="form-control" onChange={(e)=>{setEmail(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="email" value={email} className="form-control" onChange={(e)=>{setEmail(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Email</label>
         </div>
         {/* Mobile number */}
-         <div class="form-floating mb-3">
-            <input type="number" value={pno} class="form-control" onChange={(e)=>{setPno(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
+         <div className="form-floating mb-3">
+            <input type="number" value={pno} className="form-control" onChange={(e)=>{setPno(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Phone number</label>
         </div>
         </div>
@@ -129,18 +131,18 @@ function Profile(){
 
         <div className='d-flex justify-content-around gap-4 fc'>
       
-        <div class="form-floating mb-3">
-            <input type="text" value={lc} class="form-control" onChange={(e)=>{setLc(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="text" value={lc} className="form-control" onChange={(e)=>{setLc(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Leetcode</label>
         </div>
      
-        <div class="form-floating mb-3">
-            <input type="text" value={cc} class="form-control" onChange={(e)=>{setCc(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="text" value={cc} className="form-control" onChange={(e)=>{setCc(e.target.value)}}  id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Codechef</label>
         </div>
      
-         <div class="form-floating mb-3">
-            <input type="text" value={hr}  onChange={(e)=>{setHr(e.target.value)}}  class="form-control" id="floatingInput" placeholder="name@example.com"/>
+         <div className="form-floating mb-3">
+            <input type="text" value={hr}  onChange={(e)=>{setHr(e.target.value)}}  className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Hackerrank</label>
         </div>
         </div>
@@ -149,18 +151,18 @@ function Profile(){
 
         <div className='d-flex justify-content-around gap-4 fc'>
         
-        <div class="form-floating mb-3">
-            <input type="text" value='sample id'   class="form-control" id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="text" value={ib}  onChange={(e)=>{setIb(e.target.value)}}  className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Interview Bit</label>
         </div>
     
-        <div class="form-floating mb-3">
-            <input type="text" value={cf} onChange={(e)=>{setCf(e.target.value)}}   class="form-control" id="floatingInput" placeholder="name@example.com"/>
+        <div className="form-floating mb-3">
+            <input type="text" value={cf} onChange={(e)=>{setCf(e.target.value)}}   className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Code Forces</label>
         </div>
        
-         <div class="form-floating mb-3">
-            <input type="text" value={spoj} onChange={(e)=>{setSpoj(e.target.value)}}   class="form-control" id="floatingInput" placeholder="name@example.com"/>
+         <div className="form-floating mb-3">
+            <input type="text" value={spoj} onChange={(e)=>{setSpoj(e.target.value)}}   className="form-control" id="floatingInput" placeholder="name@example.com"/>
             <label for="floatingInput">Spoj</label>
         </div>
         </div>

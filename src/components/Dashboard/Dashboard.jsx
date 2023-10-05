@@ -100,26 +100,27 @@ var getScore=(type)=>{
             
             <div className='d-flex justify-content-around w-100 mt-5 gap-5  fw '>
        
-       {user.profile&&user.profile.lc&&
-         <Card 
-            noOfProblems={user.score.lc.noOfProblemsSolved} 
-            noOfContests={user.score.lc.noOfContests} 
-            rating={user.score.lc.rating} 
-            type="leetcode"  
-            img={images['lc']}/>
-       }
+                {user.profile&&user.profile.lc&&
+                    <Card 
+                        noOfProblems={user.score.lc.noOfProblemsSolved} 
+                        noOfContests={user.score.lc.noOfContests} 
+                        rating={user.score.lc.rating} 
+                        type="leetcode"  
+                        img={images['lc']}/>
+                }
 
-        {/* code chef */}
-       
-       {user.profile&&user.profile.cc&&
-         <Card 
-            noOfProblems={user.score.cc.noOfProblemsSolved} 
-            noOfContests={user.score.cc.noOfContests} 
-            rating={user.score.cc.rating}
-            type="codechef"
-            img={images['cc']}
-        />}
-            </div>
+                    {/* code chef */}
+                
+                {user.profile&&user.profile.cc&&
+                    <Card 
+                        noOfProblems={user.score.cc.noOfProblemsSolved} 
+                        noOfContests={user.score.cc.noOfContests} 
+                        rating={user.score.cc.rating}
+                        type="codechef"
+                        img={images['cc']}
+                    />}
+
+             </div>
 
             <div className='d-flex justify-content-around w-100 mt-5 gap-5 fw '>
                     {/* hackerrank */}
@@ -145,7 +146,27 @@ var getScore=(type)=>{
 
             </div>
 
-          
+            <div className="d-flex justify-content-around w-100 mt-5 gap-5 fw">
+                      {/* ib */}
+                    {user.profile&&user.profile.ib&&
+                    <Card 
+                        noOfProblems={user.score.ib.noOfProblemsSolved} 
+                        noOfContests={0} 
+                        rating={null}
+                        type="ib"
+                        img={images['ib']}
+                    />}
+                        {/* ib */}
+                    {user.profile&&user.profile.spoj&&
+                    <Card 
+                        noOfProblems={user.score.spoj.noOfProblemsSolved} 
+                        noOfContests={0} 
+                        rating={null}
+                        type="spoj"
+                        img={images['spoj']}
+                    />}
+            </div>
+
 
 
         

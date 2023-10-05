@@ -106,6 +106,7 @@ function DashboardAdmin(){
                 obj.profiles.codeforce=cfn
                 obj.profiles.spoj=spojn
                 obj.profiles.hackerrank=hrn
+                obj.profiles.ib=ibn
 
                 const resu=(await axios.put(global.api+"update/batchDetails",obj)).data
                 // console.log(resu)
@@ -143,6 +144,7 @@ function DashboardAdmin(){
                 obj.profiles.codeforce=cf
                 obj.profiles.spoj=spoj
                 obj.profiles.hackerrank=hr
+                obj.profiles.ib=ib
                 obj.users=[]
                 var result=(await axios.post(global.api+'create/batch',obj)).data
                 if(result.type=='success'){
@@ -177,6 +179,7 @@ function DashboardAdmin(){
                 setCcn(ele.profiles.codechef)
                 setCfn(ele.profiles.codeforce)
                 setSpojn(ele.profiles.spoj)
+                setIbn(ele.profiles.ib)
                 setHrn(ele.profiles.hackerrank)
                 handleOpenEdit()
                 }}><  AiFillEdit style={{color:'green'}} /></div>
@@ -220,8 +223,8 @@ function DashboardAdmin(){
  
 
   <Box sx={style} className='d-flex flex-column gap-3'>
-      <div class="form-floating mb-3">
-            <input type="text" value={name} class="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
+      <div className="form-floating mb-3">
+            <input type="text" value={name} className="form-control" onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
             <label for="floatingInput">Batch Name</label>
         </div>
 
@@ -278,8 +281,8 @@ function DashboardAdmin(){
     aria-describedby="modal-modal-description"
     >
   <Box sx={style} className='d-flex flex-column gap-3'>
-      <div class="form-floating mb-3">
-            <input type="text" value={name} class="form-control" disabled onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
+      <div className="form-floating mb-3">
+            <input type="text" value={name} className="form-control" disabled onChange={(e)=>{setName(e.target.value)}}  id="floatingInput" placeholder="Enter Batch Name"/>
             <label for="floatingInput">Batch Name</label>
         </div>
 

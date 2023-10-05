@@ -6,6 +6,7 @@ justify-content:space-around;
 align-items: center;
 flex-wrap:wrap-reverse;
 gap:30px;
+margin-bottom:30px;
 .fw{
     flex-wrap: wrap;
 }

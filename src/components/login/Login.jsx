@@ -93,7 +93,7 @@ useEffect(()=>{
    {isLoading==false &&
     <LoginContainer>
         
-          <div class='img'>
+          <div className='img'>
               <img src={logo} alt="" width="500px" height="500px" />
           </div>
         <div className="login">

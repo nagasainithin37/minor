@@ -2,7 +2,7 @@ import styled from 'styled-components';
 const CardContainer=styled.div`
 
 width:300px;
-height:150px;
+height:180px;
 padding:15px;
 display:flex;
 flex-direction: column;
@@ -24,6 +24,10 @@ border-radius: 5px;
     font-style: oblique;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+}
+
+.display-6{
+    text-shadow:4px 0px 10px #6f6868 ;
 }
 
 `
