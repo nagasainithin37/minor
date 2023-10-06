@@ -13,9 +13,9 @@ border-radius: 5px;
     font-weight:bold;
     font-size: 18px;
     font-style: italic;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:blue;
-    text-shadow: 0.1px 0.1px 1.2px #d50000;
+   
+    color:#9c27b0;
+    
 }
 
 .main{
@@ -27,7 +27,7 @@ border-radius: 5px;
 }
 
 .display-6{
-    text-shadow:4px 0px 10px #6f6868 ;
+    font-weight: 700;
 }
 
 `

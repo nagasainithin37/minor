@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 
 const ProfileContainer=styled.div`
-
     display:flex;
     padding-top: 20px;
     justify-content: space-around;
@@ -12,6 +11,7 @@ const ProfileContainer=styled.div`
         font-weight: bold;
     }
     .user{
+        background-color: white;
         margin-top: 30px;
         height:400px;
         display: flex;

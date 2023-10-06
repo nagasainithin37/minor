@@ -38,6 +38,9 @@ var getScore=(type)=>{
     if(isSuccess==false){
         return 0;
     }
+    if(type=='ib'){
+        return parseInt(user.score.ib.noOfProblemsSolved/3)
+    }
     if(type==='leetcode'){
             var x=user.score.lc.noOfProblemsSolved*50
             if(user.score.lc.noOfContests>=3 && user.score.lc.rating>=1300)
@@ -76,17 +79,19 @@ var getScore=(type)=>{
     'CodeChef',
     'CodeForces',
     'spoj',
-    'HackerRank'
+    'HackerRank',
+    "Interview Bit"
   ],
   datasets: [{
     // data:[100,200,300,400,500,600],
-    data: [getScore('leetcode'),getScore('codechef'),getScore('codeforce'),getScore('spoj'),getScore('hackerrank')],
+    data: [getScore('leetcode'),getScore('codechef'),getScore('codeforce'),getScore('spoj'),getScore('hackerrank'),getScore('ib')],
     backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)',
-      'rgb(0,255,0)',
-      'rgb(220,20,60)',
+      '#FF6384',
+      '#FF9F40',
+      '#FFCD56',
+      '#4BC0C0',
+      '#36A2EB',
+      'purple'
 
     ],
     hoverOffset: 4

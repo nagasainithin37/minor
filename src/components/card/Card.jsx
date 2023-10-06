@@ -44,7 +44,7 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
 
     if(type==='ib'){
         return <CardContainer >
-            <div className="text-center display-6 text-primary">Interview Bit</div>
+            <div className="text-center display-6 ">Interview Bit</div>
         <div className="d-flex" >
             
         <div className="d-flex flex-column h-100 justify-content-around">
@@ -68,12 +68,12 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
 
     else if(type=='spoj'){
            return <CardContainer>
-             <div className="text-center display-6 text-primary">Spoj</div>
+             <div className="text-center display-6 ">Spoj</div>
         <div className="d-flex">
         <div className="d-flex flex-column h-100 justify-content-around">
 
         <div className="d-flex gap-4">
-             <div className="side" style={{fontSize:'22px'}}>No of Problems</div>
+             <div className="side" style={{fontSize:'22px'}}>Problems</div>
             <div className='main' style={{fontSize:'22px'}}>{noOfProblems}</div> 
         </div>
 {/* Total */}
@@ -91,19 +91,19 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
 
     else{
     return <CardContainer>
-        {type=='leetcode'&& <div className="text-center display-6 text-primary ">LeetCode</div>}
-         {type=='codechef'&& <div className="text-center display-6 text-primary">CodeChef</div>}
-          {type=='codeforce'&& <div className="text-center display-6 text-primary">Codeforce</div>}
-           {type=='hackerrank'&& <div className="text-center display-6 text-primary">Hackerrank</div>}
+        {type=='leetcode'&& <div className="text-center display-6  ">LeetCode</div>}
+         {type=='codechef'&& <div className="text-center display-6 ">CodeChef</div>}
+          {type=='codeforce'&& <div className="text-center display-6 ">Codeforce</div>}
+           {type=='hackerrank'&& <div className="text-center display-6 ">Hackerrank</div>}
            
     <div className="d-flex ">
         <div className="d-flex flex-column h-100 justify-content-around">
        {type!=='hackerrank'&& <div className='d-flex gap-4'>
-            <div className="side">No of problems </div>
+            <div className="side">No . of problems </div>
             <div className='main'>{noOfProblems}</div>  
         </div>}
         {(type!=='hackerrank' )&&   <div className='d-flex gap-4'>
-            <div className="side">No of Contests </div>
+            <div className="side">No . of Contests </div>
             <div className='main'>{noOfContests}</div>  
         </div>}
          {type!=='hackerrank'&&<div className='d-flex gap-4'>

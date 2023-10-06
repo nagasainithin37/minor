@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 const LoginContainer=styled.div`
 display:flex;
 justify-content: space-around;
@@ -7,6 +6,7 @@ align-items: center;
 /* height:100vh; */
 height:100vh!important;
 color:#cfc8c2;
+background-color:white ;
 .login{
     padding:50px 30px;
     border-radius: 5px;
