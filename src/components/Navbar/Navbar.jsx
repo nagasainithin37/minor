@@ -39,7 +39,9 @@ const {user,isPending,isSuccess ,isError, errorMessage}=useSelector(store=>store
               <li className="nav-item">
                 <NavLink className="nav-link" to="admin/dashboard">Dashboard</NavLink>
               </li>
-             
+              <li className="nav-item">
+                <NavLink className="nav-link" to="admin/profile">Profiles updation</NavLink>
+              </li>
              
               <li className="nav-item" >
                 <NavLink className="nav-link" to='login' onClick={()=>{

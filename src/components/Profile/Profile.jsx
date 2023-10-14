@@ -23,7 +23,9 @@ function Profile(){
     const [isLoading,setIsLoading]=useState(false)
     const [updates,setUpdated]=useState(false)
     const dispatch=useDispatch()
-    
+      const [oldPassword,setOldPassword]=useState('')
+    const [newPassword1,setNewPassword1]=useState('')
+    const [newPassword2,setNewPassword2]=useState('')
     
 
         const success = (msg) => {
@@ -52,6 +54,41 @@ function Profile(){
             });
 
   }
+
+  
+    const updatee=async()=>{
+        if(newPassword1.length==0){
+            failure("enter password")
+            return
+        }
+setIsLoading(true)
+        if(newPassword1!=newPassword2 ){
+            failure("Password doesnt match")
+                    setIsLoading(false)
+
+            return
+        }
+
+        let body={
+            "username":localStorage.getItem("username"),
+            "oldPassword":oldPassword,
+            "newPassword":newPassword1
+        }
+
+        let result=await axios.put(global.api+"auth/changePassword",body)
+        if(result&&result.data.status=='success'){
+            success(result.data.message)
+        }
+        else{
+            failure(result.data.message??"Error occured")
+        }
+        setIsLoading(false)
+        setOldPassword('')
+        setNewPassword1('')
+        setNewPassword2('')
+    }
+
+
 
   var globalbody={}
     var update=async()=>{
@@ -109,6 +146,7 @@ function Profile(){
 
         {!isLoading&&isSuccess&&<div className='user'>
 
+        <div>
         <div className='d-flex justify-content-around gap-4 fc one'>
         {/* Name */}
         <div className="form-floating mb-3">
@@ -169,6 +207,27 @@ function Profile(){
 
         <button className="btn btn-primary" onClick={update} >Update</button>
 
+        </div>
+
+             <div className="cardd p-3">
+            <div className="display-6 text-primary">Reset Your Password </div>
+
+        <div class="mb-3 mt-2">
+        <input type="password" class="form-control" value={oldPassword}  onChange={(e)=>{setOldPassword(e.target.value)}} id="exampleFormControlInput1" placeholder="old password"/>
+        </div>
+            
+
+        <div class="mb-3 mt-2">
+        <input type="password" class="form-control" value={newPassword1}  onChange={(e)=>{setNewPassword1(e.target.value)}} id="exampleFormControlInput1" placeholder="New Password"/>
+        </div>
+
+
+        <div class="mb-3 mt-2">
+        <input type="password" class="form-control" value={newPassword2} onChange={(e)=>{setNewPassword2(e.target.value)}} id="exampleFormControlInput1" placeholder="Re enter password"/>
+        </div>
+                <button className="btn btn-primary" onClick={updatee}>Update</button>
+        </div>
+        
         </div>
         }
         { isLoading &&

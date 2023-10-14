@@ -2,6 +2,7 @@ import BatchContainer from "./batch";
 import { useLocation } from "react-router-dom";
 import {useEffect,useState,useRef} from 'react';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import '../../../consts'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {OutTable, ExcelRenderer} from 'react-excel-renderer';
@@ -13,6 +14,7 @@ function Batch(){
  const [isLoading,setIsLoading]=useState(false)
 const batch_name=useLocation().state.batch
 
+const navigate=useNavigate()
 
 const [data,setData]=useState([])
 const [newUserData,setNewUserData]=useState([])
@@ -125,7 +127,13 @@ var addUsers=async()=>{
         }
 }
 
-
+const leaderboard=()=>{
+     navigate('/user/leaderboard',{
+                    state:{
+                        batch:batch_name
+                    }
+                })
+}
 
 
 // console.log(newUserData)
@@ -159,73 +167,77 @@ return <BatchContainer>
 
 
 {/* Name branch email roll no mobile no  lc,cc,hr,cf,spoj */}
-<div className="d-flex flex-column gap-2 justify-content-center align-items-start" >
-    <input type="file" ref={newUserRef}
-    onChange={(e)=>{
-    
-        const file=e.target.files[0]
-        ExcelRenderer(file,(err,res)=>{
-          if(err){
-            alert(err)
-          }
-          else{
-
-            const headers=res.rows[0]
-            res.rows.shift()
-            var result=[]
-            for(var i=0;i<res.rows.length;i++){
-                var tempObj={}
-                for(var j=0;j<headers.length;j++){
-                    tempObj[headers[j]]=res.rows[i][j]
-                    // console.log(headers[j]+' 5 '+res.rows[i][j])
+      <div className="d-flex flex-column gap-2 justify-content-center align-items-start" >
+          <input type="file" ref={newUserRef}
+          onChange={(e)=>{
+          
+              const file=e.target.files[0]
+              ExcelRenderer(file,(err,res)=>{
+                if(err){
+                  alert(err)
                 }
-                result.push(tempObj)
-            }
-            setNewUserData([...result])
-          }
-        })
-      }} 
-    
-    
-    />
-    <button className="btn btn-primary" onClick={()=>{
-        
-        createUsers() 
-        newUserRef.current.value=''}}> Add New Users</button>
-</div>
+                else{
 
-<div className="d-flex flex-column gap-2 justify-content-center align-items-start" >
-    <input type="file" ref={addUserRef}
-        onChange={(e)=>{
-    
-        const file=e.target.files[0]
-        ExcelRenderer(file,(err,res)=>{
-          if(err){
-            alert(err)
-          }
-          else{
-            res.rows.shift()
-            var result=[]
-            var n=res.rows.length
-             for(var i=n-1;i>-1;i--){
-                result.push(res.rows[i][0])
-            }
-            setAddUserData([...result])
-            console.log(result)
-          }
-        })
-      }} 
-    
-    />
-    <button className="btn btn-primary"
-    
-    onClick={()=>{
-        
-        addUsers() 
-        addUserRef.current.value=''}}
-    
-    > Add Exisiting Users</button>
-</div>
+                  const headers=res.rows[0]
+                  res.rows.shift()
+                  var result=[]
+                  for(var i=0;i<res.rows.length;i++){
+                      var tempObj={}
+                      for(var j=0;j<headers.length;j++){
+                          tempObj[headers[j]]=res.rows[i][j]??""
+                          // console.log(headers[j]+' 5 '+res.rows[i][j])
+                      }
+                      result.push(tempObj)
+                  }
+                  setNewUserData([...result])
+                }
+              })
+            }} 
+          
+          
+          />
+          <button className="btn btn-primary" onClick={()=>{
+              
+              createUsers() 
+              newUserRef.current.value=''}}> Add New Users</button>
+      </div>
+
+      <div className="d-flex flex-column gap-2 justify-content-center align-items-start" >
+          <input type="file" ref={addUserRef}
+              onChange={(e)=>{
+          
+              const file=e.target.files[0]
+              ExcelRenderer(file,(err,res)=>{
+                if(err){
+                  alert(err)
+                }
+                else{
+                  res.rows.shift()
+                  var result=[]
+                  var n=res.rows.length
+                  for(var i=n-1;i>-1;i--){
+                      result.push(res.rows[i][0])
+                  }
+                  setAddUserData([...result])
+                  console.log(result)
+                }
+              })
+            }} 
+          
+          />
+          <button className="btn btn-primary"
+          
+          onClick={()=>{
+              
+              addUsers() 
+              addUserRef.current.value=''}}
+          
+          > Add Exisiting Users</button>
+      </div>
+
+      <button className="btn btn-primary" onClick={leaderboard}>
+            LeaderBoard
+      </button>
 </div>
 
 <div className='table-res'>

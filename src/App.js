@@ -8,7 +8,7 @@ import LeaderBoardDashBoard from "./components/LeaderBoardDashBoard/LeaderBoardD
 import DashboardAdmin from "./components/Admin/Dashboard/Dashboard.jsx";
 import Batch from './components/Admin/batch/batch.jsx'
 import Contests from "./components/Upcoming Contests/Contests.jsx";
-
+import Password from "./components/Admin/password/Password.jsx"
 
 import { useState } from "react";
 import './consts.js'
@@ -58,8 +58,8 @@ setInterval(async()=>{
 </Route>
 <Route  path='/admin' >
   <Route path='/admin/dashboard' element={<DashboardAdmin/>} />
-   <Route path='/admin/batch' element={<Batch/>} />
-
+  <Route path='/admin/batch' element={<Batch/>} />
+  <Route path='/admin/profile' element={<Password/>} />
 </Route>
 </Routes>
 

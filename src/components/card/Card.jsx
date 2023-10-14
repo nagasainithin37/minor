@@ -73,7 +73,7 @@ function Card({noOfProblems,noOfContests,rating,type,img}){
         <div className="d-flex flex-column h-100 justify-content-around">
 
         <div className="d-flex gap-4">
-             <div className="side" style={{fontSize:'22px'}}>Problems</div>
+            <div className="side" style={{fontSize:'22px'}}>Problems</div>
             <div className='main' style={{fontSize:'22px'}}>{noOfProblems}</div> 
         </div>
 {/* Total */}

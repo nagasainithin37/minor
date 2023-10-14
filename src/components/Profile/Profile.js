@@ -13,7 +13,8 @@ const ProfileContainer=styled.div`
     .user{
         background-color: white;
         margin-top: 30px;
-        height:400px;
+        margin-bottom:30px;
+        /* height:400px; */
         display: flex;
         flex-direction: column;
         justify-content: space-around;

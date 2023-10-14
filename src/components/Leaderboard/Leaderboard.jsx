@@ -41,6 +41,13 @@ function Leaderboard(){
 
     },[])
 
+
+    // // data&&data.profiles&&data.profiles.leetcode
+    // console.warn(data)
+    // console.log()
+    // console.warn(data.data.profiles)
+
+
     var sortt=(type)=>{
         // console.log(type)
         if(data==null){

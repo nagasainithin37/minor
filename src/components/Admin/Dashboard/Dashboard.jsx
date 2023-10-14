@@ -28,8 +28,6 @@ const style = {
 
 
  const success = (msg) => {
-    // console.log('success')
-    // alert('suces')
       toast.success(msg, {
         position: "top-right",
         autoClose: 3000,
@@ -41,19 +39,18 @@ const style = {
         theme: "light",
         });
  }
-        const failure = (msg) => {
-            // console.log('failure')
-            toast.error(msg, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            });
-
+const failure = (msg) => {
+    // console.log('failure')
+    toast.error(msg, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
   }
 
 
@@ -89,6 +86,7 @@ function DashboardAdmin(){
             const [spojn,setSpojn]=useState(false)
             const [ibn,setIbn]=useState(false)
             const [idx,setIdx]=useState(0)
+            
             var deleteBatch=async(batchName)=>{
                 setIsLoading(true)
                 var deleteResult=await axios.get(global.api+'update/deleteBatch?name='+batchName)
@@ -98,14 +96,12 @@ function DashboardAdmin(){
                     var actionObj=delBatch(batchName)
                     dispatch(actionObj)
                 }
-                
-                return;
+            return;
             }
 
             var updateBatchh=async()=>{
                 setIsLoading(true)
                 var obj={}
-                // console.log(oldName)
                 obj.name=name
                 obj._id=oldName
                 obj.profiles={}
@@ -117,7 +113,6 @@ function DashboardAdmin(){
                 obj.profiles.ib=ibn
 
                 const resu=(await axios.put(global.api+"update/batchDetails",obj)).data
-                // console.log(resu)
                 if(resu.message==='success'){
                         var actionObj=updateBatch({idx,data:obj});
                         dispatch(actionObj)
@@ -129,8 +124,6 @@ function DashboardAdmin(){
                     failure(resu.message)
                 }
                 handleCloseEdit()
-               
-                // obj.profiles.interviewbit=lcn
             }
 
             if(one && isSuccess==false)

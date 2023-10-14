@@ -105,7 +105,7 @@ var getScore=(type)=>{
             
             <div className='d-flex justify-content-around w-100 mt-5 gap-5  fw '>
        
-                {user.profile&&user.profile.lc&&
+                {user.profile&&
                     <Card 
                         noOfProblems={user.score.lc.noOfProblemsSolved} 
                         noOfContests={user.score.lc.noOfContests} 
@@ -116,7 +116,7 @@ var getScore=(type)=>{
 
                     {/* code chef */}
                 
-                {user.profile&&user.profile.cc&&
+                {user.profile&&
                     <Card 
                         noOfProblems={user.score.cc.noOfProblemsSolved} 
                         noOfContests={user.score.cc.noOfContests} 
@@ -129,7 +129,7 @@ var getScore=(type)=>{
 
             <div className='d-flex justify-content-around w-100 mt-5 gap-5 fw '>
                     {/* hackerrank */}
-                    {user.profile&&user.profile.hr&&
+                    {user.profile&&
                     <Card 
                         noOfProblems={user.score.hr.algo_score} 
                         noOfContests={user.score.hr.ds_score} 
@@ -139,7 +139,7 @@ var getScore=(type)=>{
                     />}
 
                         {/* code forces */}
-                {user.profile&&user.profile.cf&&
+                {user.profile&&
                     <Card 
                         noOfProblems={user.score.cf.noOfProblemsSolved} 
                         noOfContests={user.score.cf.noOfContests} 
@@ -153,7 +153,7 @@ var getScore=(type)=>{
 
             <div className="d-flex justify-content-around w-100 mt-5 gap-5 fw">
                       {/* ib */}
-                    {user.profile&&user.profile.ib&&
+                    {user.profile&&
                     <Card 
                         noOfProblems={user.score.ib.noOfProblemsSolved} 
                         noOfContests={0} 
@@ -162,7 +162,7 @@ var getScore=(type)=>{
                         img={images['ib']}
                     />}
                         {/* ib */}
-                    {user.profile&&user.profile.spoj&&
+                    {user.profile&&
                     <Card 
                         noOfProblems={user.score.spoj.noOfProblemsSolved} 
                         noOfContests={0} 
